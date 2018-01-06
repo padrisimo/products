@@ -17,13 +17,23 @@ class Products extends Component {
         }
     
         return (
-            <div className="card-deck">
+            <div className="">
                 { items.map( (item, index) => (
-                    <div className="card" key={index}>
+                    <div className="cardwrap" key={index}>
+                    <div className="card">
                         <img 
                             className="card-img-top" 
-                            src={"../../assets/" + item.image}
+                            src={`../../assets/${item.image}`}
                             />
+                        <div className="card-block">
+                            <h4 className="card-title">{item.title}</h4>
+                            <p className="card-text">{item.description}</p>
+                            <p className="card-text">
+                                <small className="text-muted">{item.email}</small>
+                            </p>
+                            <span className="btn btn-primary">{item.price} €</span>
+                        </div>
+                    </div>
                     </div>
                 ) ) }
             </div>

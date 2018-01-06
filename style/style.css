@@ -1,0 +1,11 @@
+.card-img-top {
+    width: 100%;
+}
+
+ @media (min-width: 600px) {
+    .cardwrap {
+      width: 15rem;
+      display: inline-table;
+      margin-left: 1em;
+    }
+  }
