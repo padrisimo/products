@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import catalog from './catalog_reducer';
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  catalog
 });
 
 export default rootReducer;
