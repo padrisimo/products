@@ -10,9 +10,22 @@ class Products extends Component {
     }
     
     render() {
+        const { items, isfetched } = this.props;
+        
+        if(!isfetched) {
+          return <div>loading...</div>
+        }
+    
         return (
-            <div>
-                yea
+            <div className="card-deck">
+                { items.map( (item, index) => (
+                    <div className="card" key={index}>
+                        <img 
+                            className="card-img-top" 
+                            src={"../../assets/" + item.image}
+                            />
+                    </div>
+                ) ) }
             </div>
         );
     }
