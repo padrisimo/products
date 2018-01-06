@@ -17,9 +17,9 @@ class Products extends Component {
         }
     
         return (
-            <div className="">
+            <div className="mt-5">
                 { items.map( (item, index) => (
-                    <div className="cardwrap" key={index}>
+                    <div className="cardwrap mt-3" key={index}>
                     <div className="card">
                         <img 
                             className="card-img-top" 
