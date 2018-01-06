@@ -6,7 +6,7 @@ export default function reducer(state = {
  }, action) {
     switch (action.type) {      
         case FETCH_CATALOG:
-            return {items: action.payload.items, isfetched: true}
+            return {items: action.payload.data.items, isfetched: true}
         default:
             return state;
     }
