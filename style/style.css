@@ -16,3 +16,7 @@
       margin-top: 3.3em;
     }
   }
+
+  nav {
+    display: inline-block !important;
+  }

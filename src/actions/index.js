@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const FETCH_CATALOG = 'FETCH_CATALOG';
+export const SORTING = 'SORTING';
 
 const ROOT_URL = 'http://www.mocky.io/v2';
 
@@ -11,4 +12,11 @@ export function fetchCatalog() {
         type: FETCH_CATALOG,
         payload: request
     };
+}
+
+export function sortingCatalog(key) {
+    return {
+        type: SORTING,
+        payload: key
+    }
 }

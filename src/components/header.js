@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { sortingCatalog } from '../actions';
+
 
 class Header extends Component {
     render() {
         return (
             <nav className="navbar fixed-top navbar-inverse bg-inverse">
-                <a className="navbar-brand" href="#">Wallapop Frontend Test</a>
+                <span className="text-white" href="#">Wallapop Frontend Test</span>
+                <span className="text-white ml-2" onClick={() => this.props.sortingCatalog('price')}>price</span>
             </nav>
         );
     }
 }
 
-export default Header;
+export default connect(null, { sortingCatalog })(Header)

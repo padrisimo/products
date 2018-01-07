@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCatalog } from '../actions';
+import { fetchCatalog, sortingCatalog } from '../actions';
 
 
 class Products extends Component {
@@ -41,16 +41,26 @@ class Products extends Component {
     }
 }
 
+const sortCatalog = (data, key) => {
+    if (key =='price'){
+        return [].concat(data).sort((a, b) => {
+            if (parseInt(b.price) > parseInt(a.price)) {
+                return -1
+            }
+            if (parseInt(b.price) < parseInt(a.price)) {
+                return 1
+            }
+        })
+    } else {
+        return data;
+    }
+
+};
+
 const mapStateToProps = (state) => ({
-    items: [].concat(state.catalog.items).sort((a, b) => {
-        if (parseInt(b.price) > parseInt(a.price)) {
-            return -1
-        }
-        if (parseInt(b.price) < parseInt(a.price)) {
-            return 1
-        }
-    }),
-    isfetched: state.catalog.isfetched
+    items: sortCatalog(state.catalog.items, state.sorting.sortkey),
+    isfetched: state.catalog.isfetched,
+    sortKey: state.sorting.sortkey
   });
 
-export default connect(mapStateToProps, { fetchCatalog })(Products)
+export default connect(mapStateToProps, { fetchCatalog, sortingCatalog })(Products)
