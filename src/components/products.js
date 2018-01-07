@@ -42,7 +42,14 @@ class Products extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    items: state.catalog.items,
+    items: [].concat(state.catalog.items).sort((a, b) => {
+        if (parseInt(b.price) > parseInt(a.price)) {
+            return -1
+        }
+        if (parseInt(b.price) < parseInt(a.price)) {
+            return 1
+        }
+    }),
     isfetched: state.catalog.isfetched
   });
 
