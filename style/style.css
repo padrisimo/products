@@ -2,10 +2,17 @@
     width: 100%;
 }
 
+.catalog{
+  margin-top: 4.5em;
+}
+
  @media (min-width: 600px) {
     .cardwrap {
       width: 15rem;
       display: inline-table;
       margin-left: 1em;
+    }
+    .catalog{
+      margin-top: 3.3em;
     }
   }
