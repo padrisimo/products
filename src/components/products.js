@@ -17,7 +17,7 @@ class Products extends Component {
         }
     
         return (
-            <div className="catalog">
+            <div className="catalog justify-content-center">
                 { items.map( (item, index) => (
                     <div className="cardwrap mt-3" key={index}>
                     <div className="card">
@@ -42,7 +42,7 @@ class Products extends Component {
 }
 
 const sortCatalog = (data, key) => {
-    if (key =='price'){
+    if (key === 'price'){
         return [].concat(data).sort((a, b) => {
             if (parseInt(b.price) > parseInt(a.price)) {
                 return -1
@@ -51,8 +51,19 @@ const sortCatalog = (data, key) => {
                 return 1
             }
         })
-    } else {
+    } else if(key === ''){
         return data;
+    } else {
+        return [].concat(data).sort((a, b) => {
+            if (b[key] > a[key]) {
+                return -1
+            }
+            if (b[key] < a[key]) {
+                return 1
+            }
+            return 0;
+        })
+        //
     }
 
 };
