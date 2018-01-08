@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCatalog, sortingCatalog } from '../actions';
+import { fetchCatalog, sortingCatalog, favLove, unFav } from '../actions';
 
 
 class Products extends Component {
@@ -9,12 +9,19 @@ class Products extends Component {
         this.props.fetchCatalog();
     }
 
-    inLove(){
-        alert('vagina!');
+    inLove(index){
+        console.log(index, "vaginas!!");
+
+        if(this.props.favs.includes(index)){
+            this.props.unFav(index);
+        } else {
+            this.props.favLove(index);
+        }
+
     }
 
     render() {
-        const { items, isfetched } = this.props;
+        const { items, isfetched, favs, lovedone } = this.props;
 
         if (!isfetched) {
             return <div>loading...</div>
@@ -39,8 +46,11 @@ class Products extends Component {
                                     <span className="ml-2 btn btn-primary">{item.price} €</span>
                                     <span className="btn">
                                         <i 
-                                            className="fa fa-heart-o text-danger"
-                                            onClick={()=> this.inLove()} 
+                                            className={`fa ${ 
+                                                favs.includes(index) ?
+                                                'fa-heart' : 
+                                                'fa-heart-o'} text-danger`}
+                                            onClick={()=> this.inLove(index)} 
                                             aria-hidden="true"></i></span>
                                 </div>
                             </div>
@@ -82,7 +92,9 @@ const sortCatalog = (data, key) => {
 const mapStateToProps = (state) => ({
     items: sortCatalog(state.catalog.items, state.sorting.sortkey),
     isfetched: state.catalog.isfetched,
-    sortKey: state.sorting.sortkey
+    sortKey: state.sorting.sortkey,
+    favs: state.love.favs,
+    lovedone: state.love.isfetched
 });
 
-export default connect(mapStateToProps, { fetchCatalog, sortingCatalog })(Products)
+export default connect(mapStateToProps, { fetchCatalog, sortingCatalog, favLove, unFav })(Products)
