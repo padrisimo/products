@@ -17,10 +17,10 @@ class Products extends Component {
         }
     
         return (
-            <div className="catalog justify-content-center">
+            <div className="catalog d-flex  justify-content-center flex-wrap">
                 { items.map( (item, index) => (
                     <div className="cardwrap mt-3" key={index}>
-                    <div className="card">
+                    <div className="card ">
                         <img 
                             className="card-img-top" 
                             src={`../../assets/${item.image}`}

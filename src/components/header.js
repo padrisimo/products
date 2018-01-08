@@ -18,14 +18,14 @@ class Header extends Component {
                     <span 
                         onClick={() => this.props.sortingCatalog('title')} 
                         className="nav-link text-white">
-                            Title
+                            <i className="fa fa-header" aria-hidden="true"></i>
                     </span>
                 </li>
                 <li className="nav-item">
                     <span 
                         onClick={() => this.props.sortingCatalog('description')} 
                         className="nav-link text-white">
-                            description
+                            <i className="fa fa-file-text-o" aria-hidden="true"></i>
                     </span>
                 </li>
                 <li className="nav-item">

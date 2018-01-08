@@ -5,7 +5,7 @@ import Header from './header';
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <div className="justify-content-center w-100">
         <Header />
         <Products />
       </div>
