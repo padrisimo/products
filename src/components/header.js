@@ -35,12 +35,18 @@ class Header extends Component {
                          <i className="fa fa-envelope" aria-hidden="true"></i>
                     </span>
                 </li>
-
                 <li className="nav-item">
                     <span
                         onClick={() => this.props.sortingCatalog('')} 
                         className="nav-link text-white">
                             <i className="fa fa-exchange" aria-hidden="true"></i>
+                    </span>
+                </li>
+                <li className="nav-item">
+                    <span
+                        onClick={() => this.props.sortingCatalog('')} 
+                        className="nav-link text-white">
+                            <i className="fa fa-heart" aria-hidden="true"></i>
                     </span>
                 </li>
             </ul>
