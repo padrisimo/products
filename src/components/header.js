@@ -44,7 +44,7 @@ class Header extends Component {
                 </li>
                 <li className="nav-item">
                     <span
-                        onClick={() => this.props.sortingCatalog('')} 
+                        onClick={() => alert('ouyea!')} 
                         className="nav-link text-white">
                             <i className="fa fa-heart" aria-hidden="true"></i>
                     </span>
