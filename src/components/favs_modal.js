@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { showModal, hideModal } from '../actions'
+import { showModal, hideModal, unFav } from '../actions'
 
 import Modal from 'react-bootstrap4-modal';
 
@@ -41,7 +41,12 @@ class FavsModal extends Component {
                             fav => (
                                 <li className="list-group-item justify-content-between">
                                     {fav.title}
-                                    <span className="badge badge-default badge-pill">14</span>
+                                    <span className="">
+                                    <i 
+                                        className="fa fa-heart text-danger"
+                                            onClick={()=> this.props.unFav(fav.id)} 
+                                            aria-hidden="true"></i>
+                                    </span>
                                 </li>
                             )
                         )}
@@ -64,4 +69,4 @@ const mapStateToProps = (state) => ({
     favs: state.love.favs,
 });
 
-export default connect(mapStateToProps, { showModal, hideModal })(FavsModal)
+export default connect(mapStateToProps, { showModal, hideModal, unFav })(FavsModal)

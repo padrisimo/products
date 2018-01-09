@@ -52,7 +52,8 @@ class Products extends Component {
                                                 'fa-heart' : 
                                                 'fa-heart-o'} text-danger`}
                                             onClick={()=> this.inLove(item.id)} 
-                                            aria-hidden="true"></i></span>
+                                            aria-hidden="true"></i>
+                                    </span>
                                 </div>
                             </div>
                         </div>
