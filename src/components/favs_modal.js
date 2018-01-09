@@ -9,7 +9,7 @@ class FavsModal extends Component {
         this.props.hideModal();
     }
     modalBackdropClicked() {
-        alert('go banana, go! go! banana!');
+        console.log('go banana, go! go! banana!');
     }
     render() {
         const { visible, items, favs } = this.props;
@@ -39,13 +39,16 @@ class FavsModal extends Component {
                     <ul className="list-group">
                         {items.filter(item => favs.includes(item.id)).map(
                             fav => (
-                                <li className="list-group-item justify-content-between">
+                                <li className="list-group-item justify-content-between" key={fav.id}>
                                     {fav.title}
                                     <span className="">
                                     <i 
                                         className="fa fa-heart text-danger"
-                                            onClick={()=> this.props.unFav(fav.id)} 
-                                            aria-hidden="true"></i>
+                                        data-toggle="tooltip" 
+                                        data-placement="top" 
+                                        title="delete from favs"
+                                        onClick={()=> this.props.unFav(fav.id)} 
+                                        aria-hidden="true"></i>
                                     </span>
                                 </li>
                             )

@@ -10,14 +10,11 @@ class Products extends Component {
     }
 
     inLove(index){
-        console.log(index, "vaginas!!");
-
         if(this.props.favs.includes(index)){
             this.props.unFav(index);
         } else {
             this.props.favLove(index);
         }
-
     }
 
     render() {
