@@ -15,4 +15,11 @@
     .catalog{
       margin-top: 2.3em;
     }
+    .modal{
+      top:100px;
+    }
+  }
+
+  .modal{
+    top:45px;
   }

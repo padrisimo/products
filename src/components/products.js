@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCatalog, sortingCatalog, favLove, unFav } from '../actions';
-
+import FavsModal from './favs_modal';
 
 class Products extends Component {
 
@@ -29,8 +29,9 @@ class Products extends Component {
 
         return (
             <div className="catalog d-flex  justify-content-center flex-wrap">
+                <FavsModal />
                 {items.map((item, index) => (
-                    <div className="cardwrap mt-3" key={index}>
+                    <div className="cardwrap mt-3" key={item.id}>
                         <div className="card ">
                             <img
                                 className="card-img-top"
@@ -47,10 +48,10 @@ class Products extends Component {
                                     <span className="btn">
                                         <i 
                                             className={`fa ${ 
-                                                favs.includes(index) ?
+                                                favs.includes(item.id) ?
                                                 'fa-heart' : 
                                                 'fa-heart-o'} text-danger`}
-                                            onClick={()=> this.inLove(index)} 
+                                            onClick={()=> this.inLove(item.id)} 
                                             aria-hidden="true"></i></span>
                                 </div>
                             </div>

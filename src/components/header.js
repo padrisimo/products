@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { sortingCatalog } from '../actions';
+import { sortingCatalog, showModal } from '../actions';
 
 
 class Header extends Component {
+    goModal(){
+        this.props.showModal();
+    }
     render() {
         return (
             <ul className="nav fixed-top justify-content-center navbar-inverse bg-inverse">
@@ -44,7 +47,7 @@ class Header extends Component {
                 </li>
                 <li className="nav-item">
                     <span
-                        onClick={() => alert('ouyea!')} 
+                        onClick={() => this.goModal()} 
                         className="nav-link text-white">
                             <i className="fa fa-heart" aria-hidden="true"></i>
                     </span>
@@ -54,4 +57,4 @@ class Header extends Component {
     }
 }
 
-export default connect(null, { sortingCatalog })(Header)
+export default connect(null, { sortingCatalog, showModal })(Header)
